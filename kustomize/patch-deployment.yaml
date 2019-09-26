@@ -1,0 +1,24 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: strimzi-topic-operator
+spec:
+  template:
+    spec:
+      containers:
+        - name: strimzi-topic-operator
+          env:
+            - name: STRIMZI_RESOURCE_LABELS
+              value: "strimzi.io/cluster=ipo-cluster"
+            - name: STRIMZI_KAFKA_BOOTSTRAP_SERVERS
+              value: kafka-cp-kafka-headless:9092
+            - name: STRIMZI_ZOOKEEPER_CONNECT
+              value: kafka-cp-zookeeper-headless:2181
+          resources:
+            limits:
+              memory: 200Mi
+              cpu: 200m
+            requests:
+              memory: 200Mi
+              cpu: 200m              

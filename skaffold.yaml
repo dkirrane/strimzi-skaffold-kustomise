@@ -1,0 +1,10 @@
+apiVersion: skaffold/v1beta14
+kind: Config
+
+deploy:
+  kubectl:
+    manifests:
+      - ./kustomize/kustomization.yaml
+    flags:
+      apply:
+        - -k
