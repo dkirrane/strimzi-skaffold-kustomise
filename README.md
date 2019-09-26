@@ -17,6 +17,3 @@ skaffold delete
 skaffold deploy -v debug 2>&1 | grep -i 'Running command'
 skaffold delete -v debug 2>&1 | grep -i 'Running command'
 ```
-
-
-skaffold deploy
